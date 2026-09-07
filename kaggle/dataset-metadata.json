@@ -1,0 +1,11 @@
+{
+  "title": "Argentine E-commerce: 90-day Repurchase Prediction",
+  "id": "riveroluciano97/argentine-ecommerce-repurchase",
+  "licenses": [{"name": "CC0-1.0"}],
+  "subtitle": "Synthetic multichannel e-commerce sales (ARS, inflation, Mercado Libre, Hot Sale) with a recompra_90d target",
+  "description": "See descripcion_kaggle.md",
+  "keywords": ["ecommerce", "argentina", "classification", "customer retention", "synthetic data", "retail"],
+  "resources": [
+    {"path": "ventas_ds.csv", "description": "One row per purchase, Jan-2025 to Jun-2026, 7,617 rows x 23 columns, target recompra_90d"}
+  ]
+}
