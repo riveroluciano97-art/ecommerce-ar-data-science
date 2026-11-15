@@ -4,6 +4,20 @@ Un e-commerce argentino multicanal (tienda propia, Mercado Libre, Instagram Shop
 
 > Proyecto de la carrera de **Data Science** en Coderhouse. Es la continuación en clave predictiva del proyecto de Data Analytics sobre el mismo negocio (SQL Server + Power BI). Aquel respondía *qué pasó*; este responde *qué va a pasar y qué hacer*.
 
+## Proyecto final
+
+**Notebook completo:** [`notebooks/proyecto_final_recompra.ipynb`](notebooks/proyecto_final_recompra.ipynb) · [abrir en Colab](https://colab.research.google.com/github/riveroluciano97-art/ecommerce-ar-data-science/blob/main/notebooks/proyecto_final_recompra.ipynb)
+
+| Resultado en test | Accuracy | ROC-AUC |
+|---|---|---|
+| Clase mayoritaria | 59,8% | 0,500 |
+| Regla "si ya compró antes, vuelve" | 66,6% | 0,670 |
+| **Regresión logística (modelo elegido)** | **74,3%** | **0,785** |
+
+- El modelo ordena bien: en el 20% de compras con mayor probabilidad predicha vuelve el 82,1% de los clientes; en el 20% más bajo, el 14,7%.
+- Recomendación: no regalar margen en la zona de probabilidad alta, concentrar el presupuesto de retención en la zona media y medirlo con un grupo de control.
+- Lo que el modelo no hace: con el umbral de 0,5 no supera a la regla simple en F1. Su aporte es la probabilidad, que permite ordenar clientes y elegir el umbral.
+
 ## El problema
 
 En el proyecto anterior se demostró que el margen se comprime en eventos (Hot Sale, CyberMonday) y en canales con comisión alta, y que retener clientes rinde más que captarlos. La decisión pendiente: **en qué clientes invertir descuentos, remarketing o envío gratis para que vuelvan, y en cuáles no regalar margen porque iban a volver igual**.
@@ -41,7 +55,7 @@ Diccionario completo en [`data/diccionario_datos.md`](data/diccionario_datos.md)
 
 ## Proceso
 
-- Generación del dataset (`scripts/generar_dataset_ds.py`) → limpieza y EDA (`notebooks/01_eda.ipynb`) → feature engineering y modelado (`notebooks/02_modelo_recompra.ipynb`) → evaluación y recomendaciones.
+- Generación del dataset (`scripts/generar_dataset_ds.py`) → ingesta y radiografía inicial (`notebooks/01_ingesta_y_radiografia.ipynb`) → limpieza, EDA, preprocesamiento, modelado y recomendaciones (`notebooks/proyecto_final_recompra.ipynb`).
 
 ## Estructura del repositorio
 
@@ -55,8 +69,8 @@ ecommerce-ar-data-science/
 ├── scripts/
 │   └── generar_dataset_ds.py    # generador reproducible (semilla 42)
 ├── notebooks/
-│   ├── 01_eda.ipynb             # (pre-entrega 2)
-│   └── 02_modelo_recompra.ipynb # (proyecto final)
+│   ├── 01_ingesta_y_radiografia.ipynb   # pre-entrega 2
+│   └── proyecto_final_recompra.ipynb    # proyecto final
 ├── docs/
 │   └── preentrega_1.docx
 ├── kaggle/
